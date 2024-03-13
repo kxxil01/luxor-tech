@@ -120,7 +120,7 @@ The provided setup offers visibility for observing the CRD. With this configurat
 
  As for further improvements, there are several areas that could be enhanced. Firstly, we could make the variables in the operator's code more dynamic, reducing reliance on static and hardcoded values. Security in the deployment YAML files could also be bolstered, perhaps by implementing stricter access controls in the service accounts. Additionally, rewriting the code to use more pydantic principles could improve readability and maintainability.
 
-## Some additional improvements to consider include:
+# Some additional improvements to consider include:
 
 Optimizing Resource Usage: Analyze resource utilization and optimize resource allocation for better performance and cost efficiency.
 
@@ -142,4 +142,4 @@ These improvements can help enhance the robustness, scalability, and security of
 
 
 
-### Furthermore, I sincerely hope that we can continue to collaborate in the future. If given the opportunity, I would be eager to join your company and contribute my skills and expertise to further projects and initiatives. Thank you for considering my application, and I look forward to the possibility of working together.
+ Furthermore, I sincerely hope that we can continue to collaborate in the future. If given the opportunity, I would be eager to join your company and contribute my skills and expertise to further projects and initiatives. Thank you for considering my application, and I look forward to the possibility of working together.
