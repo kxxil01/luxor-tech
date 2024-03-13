@@ -13,22 +13,78 @@ Minikube: Minikube is a tool that enables you to run Kubernetes clusters locally
 
 Docker: Docker is used for containerization. Download and install Docker from docker.com.
 
+Kopf: Kubernetes Operator Framework, Installation guide please follow this link, https://kopf.readthedocs.io/en/stable/.
+
+
 ### Section 1: Building http-server source code
 
 We need will build the source code that located in src folder with command,
 
 Working directory: src
 
-docker build -t luxor-httpserver:v1
-![Alt text](image.png)
-
+```console 
+docker build -t luxor-httpserver:v1 .
+```
 
 Its because i want to store the image in local, i choose the way to export the image to tar.
-![Alt text](image-1.png)
+
+```console 
+docker image save -o image.tar luxor-httpserver:v1
+```
+
 
 Ater that we need to load the image to minikube, so the image can be load.
-![Alt text](image-2.png)
 
+```console 
+minikube image load image.tar
+```
 
+When we successfuly upload the image to minikube, it will show in the list
 
+```console 
+minikube image ls
+```
 
+### Section 2: Building image for operator 
+
+Working directory: kubernetes/operator
+
+We will build the image for operator that will be used for observe our CRD.
+
+```console 
+docker build -t luxor-operator:v1 .
+```
+we will also doing the export for the docker images and will also load the docker image to minikube with this command,
+
+```console 
+docker image save -o image-operator.tar luxor-operator:v1
+minikube image load image-operator.tar
+```
+
+### Section 3: Deploying the CRD, Kubernetes Operator and also CustomResource.
+
+After everything that we need already loaded to minikube, we will continue with deploying the required things,
+
+## CRD
+
+```console 
+kubectl apply -f kubernetes/operator/crd/CustomResourceDefinition.yml
+```
+
+## Deploy Operator Permission using RBAC
+
+```console 
+kubectl apply -f kubernetes/operator/deploy/rbac
+```
+
+## Deploy The Operator
+
+```console 
+kubectl apply -f kubernetes/operator/deploy/KubernetesOperator.yml
+```
+
+## Deploy CR (demoweb object)
+
+```console 
+kubectl apply -f kubernetes/operator/deploy/CustomResource.yml
+```
