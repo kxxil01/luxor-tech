@@ -105,3 +105,7 @@ Multithreading is employed to enable the http-server to perform GET requests to 
 
 ![Alt text](image-6.png)
 Pinged http://10.99.169.61/ping - Response: Pong from demoweb-deployment-5657dc974-dsvcz
+
+It has also gave us visibility for observing our CRD, with this configuration we can easily know if there is changes in the CRD like increasing or decreasing replicaset, we can follow the log of kubernetes operator for our visibility.
+
+![Alt text](image-7.png)
