@@ -1,0 +1,44 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: luxor-config
+data:
+  config.py: |
+    OTHER_SERVERS = [
+        {"url": "http://luxor-service/ping"}
+    ]
+---
+apiVersion: luxor.tech/v1
+kind: DemoWeb
+metadata:
+  name: demoweb
+  namespace: default
+spec:
+  replicas: 2
+  image: docker.io/library/luxor:v15
+  volumeMounts:
+  - name: luxor-config
+    mountPath: /python-docker/config.py  # Mount the config.py file
+    subPath: config.py  # Specify the file name
+    readOnly: true  # Mark the volume as read-only
+  volumes:
+  - name: luxor-config
+    configMap:
+      name: luxor-config
+---
+# service 
+apiVersion: v1
+kind: Service
+metadata:
+  name: luxor-service
+  namespace: default
+spec:
+  selector:
+    app: demoweb
+  ports:
+    - protocol: TCP
+      name: http-port
+      port: 80
+      targetPort: 5000
+  type: ClusterIP

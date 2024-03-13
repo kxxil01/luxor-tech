@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demoweb-operator
+  namespace: default
+  labels:
+    app: op
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      application: demoweb-operator
+  template:
+    metadata:
+      labels:
+        application: demoweb-operator
+    spec:
+      serviceAccountName: demoweb-operator
+      containers:
+      - name: demo
+        image: docker.io/library/demoweb-operator:v5
