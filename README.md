@@ -32,7 +32,6 @@ Its because i want to store the image in local, i choose the way to export the i
 docker image save -o image.tar luxor-httpserver:v1
 ```
 
-
 Ater that we need to load the image to minikube, so the image can be load.
 
 ```console 
@@ -54,6 +53,7 @@ We will build the image for operator that will be used for observe our CRD.
 ```console 
 docker build -t luxor-operator:v1 .
 ```
+
 we will also doing the export for the docker images and will also load the docker image to minikube with this command,
 
 ```console 
@@ -88,3 +88,20 @@ kubectl apply -f kubernetes/operator/deploy/KubernetesOperator.yml
 ```console 
 kubectl apply -f kubernetes/operator/deploy/CustomResource.yml
 ```
+
+## Check The Operator & The Deployment
+
+```console 
+kubectl get pod,svc -n default
+```
+
+### Section 4 : Testing the resource that had been deployed
+
+Once all required resources are deployed, check the logs in the deployment of the http server. The http server serves GET /ping and responds with "pong\n".
+
+![Alt text](image-5.png)
+
+Multithreading is employed to enable the http-server to perform GET requests to other similar HTTP servers, providing a unique identifier obtained from the hostname. The response is as follows:
+
+![Alt text](image-6.png)
+Pinged http://10.99.169.61/ping - Response: Pong from demoweb-deployment-5657dc974-dsvcz
