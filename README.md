@@ -8,8 +8,11 @@ Prerequisites
 Before you begin, make sure you have the following tools installed on your system, you can refer to the documentation of each tools that needs before:
 
 Python: Ensure that Python is installed on your machine. You can download it from python.org.
+
 Minikube: Minikube is a tool that enables you to run Kubernetes clusters locally. Install Minikube by following the instructions at minikube.sigs.k8s.io/docs/start/.
+
 Docker: Docker is used for containerization. Download and install Docker from docker.com.
+
 Kopf: Kubernetes Operator Framework, Installation guide please follow this link, https://kopf.readthedocs.io/en/stable/.
 
 
