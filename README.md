@@ -113,9 +113,9 @@ The provided setup offers visibility for observing the CRD. With this configurat
 
 ### Section 5 : Comments and Further Improvements
 
-# I want to extend my apologies for being relatively new to working with CRDs, as my previous experience was mainly with the standard Kubernetes API. Additionally, I regret any shortcomings that may have arisen due to time constraints. Given more time, I am confident that I could complete this challenge in a more thorough and effective manner.
+ I want to extend my apologies for being relatively new to working with CRDs, as my previous experience was mainly with the standard Kubernetes API. Additionally, I regret any shortcomings that may have arisen due to time constraints. Given more time, I am confident that I could complete this challenge in a more thorough and effective manner.
 
-# As for further improvements, there are several areas that could be enhanced. Firstly, we could make the variables in the operator's code more dynamic, reducing reliance on static and hardcoded values. Security in the deployment YAML files could also be bolstered, perhaps by implementing stricter access controls in the service accounts. Additionally, rewriting the code to use more pydantic principles could improve readability and maintainability.
+ As for further improvements, there are several areas that could be enhanced. Firstly, we could make the variables in the operator's code more dynamic, reducing reliance on static and hardcoded values. Security in the deployment YAML files could also be bolstered, perhaps by implementing stricter access controls in the service accounts. Additionally, rewriting the code to use more pydantic principles could improve readability and maintainability.
 
 ## Some additional improvements to consider include:
 
